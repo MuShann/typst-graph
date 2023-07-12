@@ -11,8 +11,6 @@
   
   box(width: w, height: h, clip: clip,
     {
-      show math.equation: it => {block(fill: fill, it)}
-      
       rect(fill: fill, width: w, height: h)
       if grid != 0pt {
         place(stack(dir: ltr, ..range(int(w/grid)+1).map(x => place(line(start: (x*grid, 0pt), length: h, angle: -90deg, stroke: stroke)))))
