@@ -60,9 +60,8 @@
   }
 }
 
-#let p(..nums, color, radius: 1.2pt, solid: true, dir: left, body) = {
-  nums = nums.pos() + (0, 0).slice(nums.pos().len(), 2)
-  place(dx: nums.at(0)*10pt-radius, dy: -nums.at(1)*10pt-radius)[
+#let p(x, y, color, radius: 1.2pt, solid: true, dir: left, body) = {
+  place(dx:x*10pt-radius, dy: -y*10pt-radius)[
     #if solid {circle(radius: radius, fill: color)}
     else {circle(radius: radius, stroke: 0.75pt+color)}
   ]
@@ -71,7 +70,7 @@
   else if dir == right {align = right+horizon}
   else if dir == top {align = center+bottom}
   else if dir == bottom {align = center+top}
-  place(dx: nums.at(0)*10pt, dy: -nums.at(1)*10pt, box(width: 0pt, height: 0pt, inset: 2pt, place(align, body)))
+  place(dx: x*10pt, dy: -y*10pt, box(width: 0pt, height: 0pt, inset: 2pt, place(align, body)))
 }
 
 #let l(..nums, stroke: 1pt, larr: 0, rarr: 0, dir: left, body) = {
