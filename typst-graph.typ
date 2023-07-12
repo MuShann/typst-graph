@@ -41,11 +41,11 @@
   
   for x in x_range {
     let y = 0
-    if func {
-      y = -func(x)
+    if func == none {
+      y = -calc_math(body, var, x)
     }
     else {
-      -calc_math(body, var, x)
+      y = -func(x)
     }
     if -y < up and -y > down {points.push((x*10pt, y*10pt));flag = true}
     else if flag == true {lines.push(points);points = ();flag = false}
